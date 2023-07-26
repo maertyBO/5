@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Функция сравнения для qsort() для сортировки в порядке убывания
+int compare_desc(const void* a, const void* b) {
+    return *(char*)b - *(char*)a;
+}
+
+int main() {
+    char alphabet[] = {'c', 'a', 'b', 'e', 'd', 'g', 'f'};
+    int size = sizeof(alphabet) / sizeof(alphabet[0]);
+
+    qsort(alphabet, size, sizeof(char), compare_desc);
+
+    for (int i = 0; i < size; i++) {
+        printf("%c ", alphabet[i]);
+    }
+    // Output: g f e d c b a
+
+    return 0;
+}
